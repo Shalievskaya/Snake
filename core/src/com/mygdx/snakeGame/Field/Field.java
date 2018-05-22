@@ -98,6 +98,7 @@ public class Field {
     public Field(int width, int height) {
         this.width = width;
         this.height = height;
+        /*
         this.background = new Texture("field.jpeg");
         addObjects(); // помещаем на поле объекты
         addSnake();
@@ -106,6 +107,7 @@ public class Field {
         for (int i = 0; i < 2; i++) {
             addRanges();
         }
+        */
     }
 
     /**

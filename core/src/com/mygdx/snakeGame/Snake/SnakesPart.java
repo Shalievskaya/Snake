@@ -32,9 +32,9 @@ public class SnakesPart {
     * @param y - координата нижнего угла изображения
     */
     public SnakesPart(int x, int y){
-        image = new Texture("snake.png");
+    //    image = new Texture("snake.png");
         position = new Vector2(x,y);
-        form  = new Rectangle(x + 2, y + 2, image.getWidth() - 4, image.getHeight() - 4);
+        form  = new Rectangle(x + 2, y + 2, 24 - 4, 24 - 4);
     }
     /** Возвращает изображение сегмента
      * @return изображение 

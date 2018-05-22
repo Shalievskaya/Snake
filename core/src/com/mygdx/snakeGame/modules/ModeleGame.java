@@ -7,6 +7,7 @@ package com.mygdx.snakeGame.modules;
 
 import com.mygdx.modules.Module;
 import com.mygdx.snakeGame.Objects.EdibleObject;
+import com.mygdx.snakeGame.Snake.Snake;
 import com.mygdx.snakeGame.game.Game;
 import java.util.Random;
 
@@ -35,16 +36,16 @@ public class ModeleGame implements Module {
         int curDir = gm.field.getSnake().direction;
         for (EdibleObject f : gm.getFood()) {
             if (Math.abs(f.getPosition().x - gm.getSnakePosition().x) < 23) {
-                if ((f.getPosition().y - gm.getSnakePosition().y > 0) && gm.checkNavigate(gm.field.UP) && curDir!=gm.field.DOWN) {
+                if ((f.getPosition().y - gm.getSnakePosition().y > 0) && gm.checkNavigate(gm.field.UP) && curDir != gm.field.DOWN) {
                     dir = gm.field.UP;
-                } else if ((f.getPosition().y - gm.getSnakePosition().y) < 0 && gm.checkNavigate(gm.field.DOWN) && curDir!=gm.field.UP ) {
+                } else if ((f.getPosition().y - gm.getSnakePosition().y) < 0 && gm.checkNavigate(gm.field.DOWN) && curDir != gm.field.UP) {
                     dir = gm.field.DOWN;
                 }
                 break;
             } else if (Math.abs(f.getPosition().y - gm.getSnakePosition().y) < 23) {
-                if ((f.getPosition().x - gm.getSnakePosition().x) > 0 && gm.checkNavigate(gm.field.RIGHT) && curDir!=gm.field.LEFT) {
+                if ((f.getPosition().x - gm.getSnakePosition().x) > 0 && gm.checkNavigate(gm.field.RIGHT) && curDir != gm.field.LEFT) {
                     dir = gm.field.RIGHT;
-                } else if ((f.getPosition().x - gm.getSnakePosition().x) < 0 && gm.checkNavigate(gm.field.LEFT) && curDir!=gm.field.RIGHT) {
+                } else if ((f.getPosition().x - gm.getSnakePosition().x) < 0 && gm.checkNavigate(gm.field.LEFT) && curDir != gm.field.RIGHT) {
                     dir = gm.field.LEFT;
                 }
                 break;
@@ -77,6 +78,29 @@ public class ModeleGame implements Module {
         return 0;
     }
 
+    public int getDirection(EdibleObject f, Snake snake) {
+        int dir = 1;
+        if (Math.abs(f.getPosition().x - snake.getParts().get(0).getPosition().x) < 23) {
+            if ((f.getPosition().y - snake.getParts().get(0).getPosition().y > 0) && snake.direction != 2) {
+                dir = 0;
+            } else if ((f.getPosition().y - snake.getParts().get(0).getPosition().y) < 0 && snake.direction != 0) {
+                dir = 2;
+            }
+        } else if (Math.abs(f.getPosition().y - snake.getParts().get(0).getPosition().y) < 23) {
+            if ((f.getPosition().x - snake.getParts().get(0).getPosition().x) > 0 && snake.direction != 1) {
+                dir = 3;
+            } else if ((f.getPosition().x - snake.getParts().get(0).getPosition().x) < 0 && snake.direction != 3) {
+                dir = 1;
+            }
+        } else if (f == gm.getFood().get(2)) {
+            dir = 3;
+        } else if (f == gm.getFood().get(1)) {
+            dir = 0;
+        }
+
+        return dir;
+    }
+
     private int changeDir(int dir) {
         if (dir < 3) {
             return dir + 1;
@@ -91,4 +115,5 @@ public class ModeleGame implements Module {
         }
         return true;
     }
+
 }

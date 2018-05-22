@@ -63,10 +63,10 @@ public abstract class FieldObject {
      * @param field поле, на котором объект находится
      */
     public FieldObject(int x, int y, Field field) {
-        image = new Texture("apple.png");
+     //   image = new Texture("apple.png");
         position = new Vector2(x, y);
         this.field = field;
-        form = new Rectangle(x + 2, y + 2, image.getWidth() - 4, image.getHeight() - 4);
+        form = new Rectangle(x + 2, y + 2, 24 - 4, 24 - 4);
     }
 
     /**

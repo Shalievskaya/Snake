@@ -21,7 +21,7 @@ public class Strawberry extends EdibleObject{
      */
     public Strawberry(int x, int y,Field field) {
         super(x, y,field);
-        this.image = new Texture("strawberry.png");
+       // this.image = new Texture("strawberry.png");
     }
     /**
      * Выполнить действие над змеей - увеличть длину

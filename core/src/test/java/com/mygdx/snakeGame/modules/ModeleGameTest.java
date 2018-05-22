@@ -4,16 +4,9 @@
  * and open the template in the editor.
  */
 package test.java.com.mygdx.snakeGame.modules;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
-import com.mygdx.modules.Module;
-import com.mygdx.snakeGame.game.Game;
 import com.mygdx.snakeGame.modules.ModeleGame;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
 import com.mygdx.snakeGame.Field.Field;
-import com.mygdx.snakeGame.Objects.EdibleObject;
 import com.mygdx.snakeGame.Objects.Strawberry;
 import com.mygdx.snakeGame.Snake.Snake;
 import static org.junit.Assert.*;
